@@ -1,6 +1,6 @@
 app.controller('space-ctrl', ['$scope', '$window', function($scope, $window){
 
-	const socket = io();
+	const socket = io($window.location.hostname);
 	const room = $window.location.href.split('/')[4];
 
 	$scope.messages = [];
