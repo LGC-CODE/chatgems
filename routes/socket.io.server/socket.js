@@ -1,20 +1,28 @@
-var port = 8000;
+var io = require('socket.io');
 
-var io = require('socket.io')(port);
+var socketIO = {};
 
-io.on('connection', (socket) => {
-	
-	socket.on('join', (room) =>{
-		socket.join(room);
-		io.emit(room, 'welcome!');
-		console.log(room + ' joined');
+socketIO.run = function(server){
+	if(server) return io(server);
+};
 
-		socket.on(room, data => {
-			io.in(room).emit(room, data);
-			console.log(socket.rooms, `received ${data}`);
+socketIO.listen = function(io){
+	io.on('connection', (socket) => {
+		
+		socket.on('join', (room) =>{
+			socket.join(room);
+			io.emit(room, 'welcome!');
+			console.log(room + ' joined');
+
+			socket.on(room, data => {
+				io.in(room).emit(room, data);
+				console.log(socket.rooms, `received ${data}`);
+			});
 		});
-	});
 
-});
+	});
+};
+
+module.exports = socketIO;
 
 	
