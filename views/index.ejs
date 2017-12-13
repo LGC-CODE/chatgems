@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    
+
+  </head>
+  <body>
+  	<div class="selection">
+  		<h1>Choose Chatroom</h1>
+  		<ul id="list">
+  			
+  		</ul>
+  	</div>
+  	<ul id="messages"></ul>
+    <form action="">
+      <input id="m" autocomplete="off" /><button>Send</button>
+    </form>
+
+  </body>
+
+  <script src="/js/lib/angular-1.6.6.js"></script>
+  <script src="/js/home-app/Sicario.js"></script>
+  <script src="/js/home-app/ioApp.js"></script>
+</html>
