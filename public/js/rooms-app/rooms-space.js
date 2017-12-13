@@ -16,8 +16,9 @@ app.controller('space-ctrl', ['$scope', '$window', function($scope, $window){
 
 	start(room);
 
-	$scope.send = function(msg){
+	$scope.send = msg =>{
 		socket.emit(room, msg);
+		$scope.user_message = "";
 	};
 
 

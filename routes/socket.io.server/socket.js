@@ -6,7 +6,7 @@ io.on('connection', (socket) => {
 	
 	socket.on('join', (room) =>{
 		socket.join(room);
-		io.emit(room, 'hello world');
+		io.emit(room, 'welcome!');
 		console.log(room + ' joined');
 
 		socket.on(room, data => {
